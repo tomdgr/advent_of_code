@@ -1,6 +1,6 @@
 import numpy as np
 import re
-with open('luke5.txt', 'r') as f:
+with open('../luke5.txt', 'r') as f:
     ventmatrix = [line.strip() for line in f]
 
 

@@ -1,6 +1,6 @@
 
 list=[]
-with open('luke2.txt', 'r') as f:
+with open('../data/luke2.txt', 'r') as f:
     for lines in f:
         a = [s for s in lines.split() ]
         list = list+a

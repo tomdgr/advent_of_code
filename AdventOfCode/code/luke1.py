@@ -1,4 +1,4 @@
-with open('test.txt', 'r') as f:
+with open('../test.txt', 'r') as f:
     results = [line.strip() for line in f]
 results = list(map(int, results))
 decreased=0

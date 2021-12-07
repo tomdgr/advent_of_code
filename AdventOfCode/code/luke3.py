@@ -1,4 +1,4 @@
-with open('luke3.txt', 'r') as f:
+with open('../luke3.txt', 'r') as f:
     luke3_in = [line.strip() for line in f]
 def find_target(col_num, target_liste):
     sum=0
