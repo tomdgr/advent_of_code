@@ -53,7 +53,7 @@ def model_energy_levels(octopus_map):
     NUM_FLASHED = 0
     d = ((0, -1), (0, 1), (1, 0), (-1, 0), (1, 1), (-1, 1), (-1, -1), (1, -1) )
     rows,cols = len(octopus_map), len(octopus_map[0])
-    SIMULATE_STEPS = 100
+    SIMULATE_STEPS = 2000
     flashed_map= np.zeros((rows,cols),dtype=int)
     # add borders to avoid index errors:
     octopus_map = add_border(octopus_map,-1000)
@@ -70,8 +70,24 @@ def model_energy_levels(octopus_map):
                     NUM_FLASHED,flashed_map = flash(octopus_map,flashed_map,d,x,y, NUM_FLASHED)
         # Set the bursted dumbo octopus to 0
         octopus_map[octopus_map > 9] = 0
+
+        # Task 2:
+        all_octopus_flashed=True
+        for x in range(1,rows-1):
+            for y in range(1,cols-1):
+                # if only 1 lacks flashing, set all flashed to false
+                if(flashed_map[x][y]!=1):
+                    all_octopus_flashed=False
+        if(all_octopus_flashed==True):
+            print('All octopus flashed at step: ', step+1)
+        # ___________________
         # set the flashed_map to 0 again
-        flashed_map[flashed_map != 0] = 0
+        for x in range (1,rows-1):
+            for y in range(1,cols-1):
+                flashed_map[x][y]=0
+
+
+
     return NUM_FLASHED
 
 
