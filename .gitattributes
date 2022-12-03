@@ -1,1 +1,1 @@
-.gitattributes
+*.ipynb filter=strip-notebook-output  
